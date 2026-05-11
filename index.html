@@ -974,20 +974,20 @@
 
       <!-- Left: Gallery -->
       <div>
-        <!-- Main image -->
-        <div style="border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 8px 40px rgba(0,0,0,0.10);margin-bottom:16px;">
-          <img id="pdp-blue-main" src="images/Main.webp" alt="Blue Raspberry Fungi Fusion" style="width:100%;height:520px;object-fit:cover;display:block;" />
+        <!-- Main image — 1:1 square frame -->
+        <div style="border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 8px 40px rgba(0,0,0,0.10);margin-bottom:16px;aspect-ratio:1/1;width:100%;">
+          <img id="pdp-blue-main" src="images/Main.webp" alt="Blue Raspberry Fungi Fusion" style="width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
         <!-- Thumbnail strip -->
         <div style="display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;">
-          <img src="images/Main.webp"     alt="" onclick="document.getElementById('pdp-blue-main').src=this.src" style="width:80px;height:80px;object-fit:cover;border-radius:12px;cursor:pointer;border:2.5px solid #2D6A4F;flex-shrink:0;" />
-          <img src="images/PT01_1.webp"  alt="" onclick="document.getElementById('pdp-blue-main').src=this.src" style="width:80px;height:80px;object-fit:cover;border-radius:12px;cursor:pointer;border:2px solid #e0e0e0;flex-shrink:0;" />
-          <img src="images/PT02.webp"    alt="" onclick="document.getElementById('pdp-blue-main').src=this.src" style="width:80px;height:80px;object-fit:cover;border-radius:12px;cursor:pointer;border:2px solid #e0e0e0;flex-shrink:0;" />
-          <img src="images/PT03.webp"    alt="" onclick="document.getElementById('pdp-blue-main').src=this.src" style="width:80px;height:80px;object-fit:cover;border-radius:12px;cursor:pointer;border:2px solid #e0e0e0;flex-shrink:0;" />
-          <img src="images/PT04.webp"    alt="" onclick="document.getElementById('pdp-blue-main').src=this.src" style="width:80px;height:80px;object-fit:cover;border-radius:12px;cursor:pointer;border:2px solid #e0e0e0;flex-shrink:0;" />
-          <img src="images/PT05.webp"    alt="" onclick="document.getElementById('pdp-blue-main').src=this.src" style="width:80px;height:80px;object-fit:cover;border-radius:12px;cursor:pointer;border:2px solid #e0e0e0;flex-shrink:0;" />
-          <img src="images/PT06_1.webp"  alt="" onclick="document.getElementById('pdp-blue-main').src=this.src" style="width:80px;height:80px;object-fit:cover;border-radius:12px;cursor:pointer;border:2px solid #e0e0e0;flex-shrink:0;" />
-          <img src="images/PT07.webp"    alt="" onclick="document.getElementById('pdp-blue-main').src=this.src" style="width:80px;height:80px;object-fit:cover;border-radius:12px;cursor:pointer;border:2px solid #e0e0e0;flex-shrink:0;" />
+          <div style="width:80px;height:80px;flex-shrink:0;border-radius:12px;overflow:hidden;border:2.5px solid #2D6A4F;cursor:pointer;" onclick="document.getElementById('pdp-blue-main').src='images/Main.webp'"><img src="images/Main.webp"    alt="" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+          <div style="width:80px;height:80px;flex-shrink:0;border-radius:12px;overflow:hidden;border:2px solid #e0e0e0;cursor:pointer;" onclick="document.getElementById('pdp-blue-main').src='images/PT01_1.webp'"><img src="images/PT01_1.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+          <div style="width:80px;height:80px;flex-shrink:0;border-radius:12px;overflow:hidden;border:2px solid #e0e0e0;cursor:pointer;" onclick="document.getElementById('pdp-blue-main').src='images/PT02.webp'"><img src="images/PT02.webp"   alt="" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+          <div style="width:80px;height:80px;flex-shrink:0;border-radius:12px;overflow:hidden;border:2px solid #e0e0e0;cursor:pointer;" onclick="document.getElementById('pdp-blue-main').src='images/PT03.webp'"><img src="images/PT03.webp"   alt="" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+          <div style="width:80px;height:80px;flex-shrink:0;border-radius:12px;overflow:hidden;border:2px solid #e0e0e0;cursor:pointer;" onclick="document.getElementById('pdp-blue-main').src='images/PT04.webp'"><img src="images/PT04.webp"   alt="" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+          <div style="width:80px;height:80px;flex-shrink:0;border-radius:12px;overflow:hidden;border:2px solid #e0e0e0;cursor:pointer;" onclick="document.getElementById('pdp-blue-main').src='images/PT05.webp'"><img src="images/PT05.webp"   alt="" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+          <div style="width:80px;height:80px;flex-shrink:0;border-radius:12px;overflow:hidden;border:2px solid #e0e0e0;cursor:pointer;" onclick="document.getElementById('pdp-blue-main').src='images/PT06_1.webp'"><img src="images/PT06_1.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+          <div style="width:80px;height:80px;flex-shrink:0;border-radius:12px;overflow:hidden;border:2px solid #e0e0e0;cursor:pointer;" onclick="document.getElementById('pdp-blue-main').src='images/PT07.webp'"><img src="images/PT07.webp"   alt="" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
         </div>
       </div>
 
@@ -1027,55 +1027,40 @@
     </div>
   </div>
 
-  <!-- SECTION: Bubbles / Feature callouts — PT02 -->
-  <div style="background:#f2eeff;padding:0;">
-    <img src="images/PT02.webp" alt="Bold blue raspberry flavor" style="width:100%;max-height:680px;object-fit:cover;display:block;" />
-  </div>
-
-  <!-- SECTION: Every sip working for you — PT03 -->
-  <div style="background:#fafafa;padding:0;">
-    <img src="images/PT03.webp" alt="Every sip working for you" style="width:100%;max-height:720px;object-fit:cover;display:block;" />
-  </div>
-
-  <!-- SECTION: Nutrition + Can — PT01_1 -->
-  <div style="background:#e8edf8;padding:60px 24px;">
-    <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
-      <img src="images/PT01_1.webp" alt="Nutrition facts" style="width:100%;border-radius:24px;box-shadow:0 12px 48px rgba(0,0,0,0.12);" />
-      <div>
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#2D6A4F;margin-bottom:12px;">Clean Label</div>
-        <h2 style="font-size:clamp(28px,4vw,46px);font-weight:900;line-height:1.1;margin-bottom:20px;">Real ingredients. Nothing synthetic.</h2>
-        <p style="font-size:16px;color:#6B6B6B;line-height:1.7;margin-bottom:28px;">Carbonated Water, Organic Light Blue Agave Nectar, Citric Acid, Natural Blue Raspberry Flavor, Lion's Mane Extract, Cordyceps Extract, Red Reishi Extract, Ocean Derived Magnesium, Ocean Derived Calcium Citrate, Potassium Sorbate, Benzoic Acid.</p>
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <div style="display:flex;align-items:center;gap:14px;background:#fff;border-radius:14px;padding:14px 18px;font-size:14px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,0.06);">🚫 Alcohol Free</div>
-          <div style="display:flex;align-items:center;gap:14px;background:#fff;border-radius:14px;padding:14px 18px;font-size:14px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,0.06);">🔥 Low Cal — only 40 calories</div>
-          <div style="display:flex;align-items:center;gap:14px;background:#fff;border-radius:14px;padding:14px 18px;font-size:14px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,0.06);">🌱 100% Vegan</div>
-        </div>
+  <!-- SECTION: Feature cards -->
+  <section style="padding:80px 24px;background:#fff;">
+    <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+      <div style="background:#f8fffe;border-radius:20px;padding:32px 24px;border:1px solid #d8f3dc;">
+        <div style="font-size:32px;margin-bottom:12px;">🧠</div>
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:8px;">Focus, sharpened.</h3>
+        <p style="font-size:14px;color:#6B6B6B;line-height:1.6;">900mg Lion's Mane — a nootropic mushroom studied for nerve growth and cognitive clarity.</p>
+      </div>
+      <div style="background:#f8fffe;border-radius:20px;padding:32px 24px;border:1px solid #d8f3dc;">
+        <div style="font-size:32px;margin-bottom:12px;">⚡</div>
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:8px;">Energy, not jitters.</h3>
+        <p style="font-size:14px;color:#6B6B6B;line-height:1.6;">700mg Cordyceps — used by athletes for oxygen utilization and sustained energy without the caffeine cliff.</p>
+      </div>
+      <div style="background:#f8fffe;border-radius:20px;padding:32px 24px;border:1px solid #d8f3dc;">
+        <div style="font-size:32px;margin-bottom:12px;">🌿</div>
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:8px;">Calm, on tap.</h3>
+        <p style="font-size:14px;color:#6B6B6B;line-height:1.6;">400mg Reishi — adaptogenic, helping your body buffer stress instead of fighting it.</p>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- SECTION: Third-party tested — PT04 -->
-  <div style="padding:0;background:#0a0a14;">
-    <img src="images/PT04.webp" alt="Every batch third-party tested" style="width:100%;max-height:720px;object-fit:cover;display:block;opacity:0.95;" />
-  </div>
-
-  <!-- SECTION: Actually tastes incredible — PT05 -->
-  <div style="padding:0;">
-    <img src="images/PT05.webp" alt="Actually tastes incredible" style="width:100%;max-height:700px;object-fit:cover;display:block;" />
-  </div>
-
-  <!-- SECTION: Plant Powered — PT06_1 -->
-  <div style="padding:0;background:#001a2e;">
-    <img src="images/PT06_1.webp" alt="Plant Powered Happiness" style="width:100%;max-height:600px;object-fit:cover;display:block;" />
-  </div>
-
-  <!-- SECTION: Born in NorCal — PT07 + CTA -->
-  <div style="position:relative;overflow:hidden;">
-    <img src="images/PT07.webp" alt="Clean energy. Real ingredients." style="width:100%;max-height:680px;object-fit:cover;display:block;" />
-    <div style="position:absolute;bottom:40px;left:50%;transform:translateX(-50%);text-align:center;">
-      <button class="btn btn-purple" style="font-size:18px;padding:18px 48px;box-shadow:0 8px 32px rgba(0,0,0,0.35);" data-add-cart="Blue Raspberry 12-pack" data-price="36">Add to Cart — $36 →</button>
+  <!-- SECTION: Ingredient label -->
+  <section style="padding:0 24px 80px;background:#fff;">
+    <div style="max-width:760px;margin:0 auto;background:#f5f0e8;border-radius:24px;padding:40px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#2D6A4F;margin-bottom:12px;">Full Ingredient Label</div>
+      <h2 style="font-size:26px;font-weight:900;margin-bottom:24px;">Nothing to hide.</h2>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <div style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.08);font-size:15px;"><span style="font-weight:600;">Lion's Mane Extract (fruiting body)</span><span style="color:#2D6A4F;font-weight:800;">900mg</span></div>
+        <div style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.08);font-size:15px;"><span style="font-weight:600;">Cordyceps militaris Extract (fruiting body)</span><span style="color:#2D6A4F;font-weight:800;">700mg</span></div>
+        <div style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.08);font-size:15px;"><span style="font-weight:600;">Reishi Extract (fruiting body)</span><span style="color:#2D6A4F;font-weight:800;">400mg</span></div>
+        <div style="padding:14px 0;font-size:14px;color:#6B6B6B;line-height:1.65;"><strong>Other ingredients:</strong> Carbonated Water, Organic Light Blue Agave Nectar, Citric Acid, Natural Blue Raspberry Flavor, Ocean Derived Magnesium, Ocean Derived Calcium Citrate, Potassium Sorbate, Benzoic Acid. Vegan. Gluten-free. 40 calories.</div>
+      </div>
     </div>
-  </div>
+  </section>
 
   <!-- SECTION: Reviews -->
   <section style="padding:80px 24px;background:#fff;">
