@@ -22,7 +22,7 @@
 <nav>
   <div class="nav-inner">
     <a href="#" data-page="home" class="nav-logo">
-      <img src="images/Happie Logo (6).png" alt="Happie Fungi Fusion" style="height:44px;width:auto;object-fit:contain;" />
+      <img src="images/Happie%20Logo%20(6).png" alt="Happie Fungi Fusion" style="height:58px;width:auto;object-fit:contain;" />
     </a>
     <ul class="nav-links">
       <li><a href="#" data-page="shop">Shop</a></li>
@@ -34,7 +34,7 @@
     <div class="nav-right">
       <span class="free-ship">Free shipping over $60</span>
       <a href="#" class="sign-in">Sign in</a>
-      <a href="#" data-page="shop" class="cart-btn cart-count">Shop·0</a>
+      <a href="#" data-page="checkout" class="cart-btn cart-count">Shop·0</a>
     </div>
     <div class="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -1246,12 +1246,237 @@
 </div><!-- /page-pdp-watermelon -->
 
 <!-- ============================================================
+     PAGE: CHECKOUT
+     ============================================================ -->
+<div id="page-checkout" style="display:none;">
+  <div style="background:var(--cream);min-height:100vh;padding:0 0 80px;">
+
+    <!-- Checkout header -->
+    <div style="background:#fff;border-bottom:1px solid rgba(0,0,0,0.07);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;max-width:100%;">
+      <a href="#" data-page="home" style="display:flex;align-items:center;">
+        <img src="images/Happie%20Logo%20(6).png" alt="Happie Fungi Fusion" style="height:48px;width:auto;object-fit:contain;" />
+      </a>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#6B6B6B;">
+        <span id="co-step-label" style="font-weight:600;color:#2D6A4F;">Cart</span>
+        <span>›</span><span id="co-step-contact" style="opacity:0.45;">Contact</span>
+        <span>›</span><span id="co-step-shipping" style="opacity:0.45;">Shipping</span>
+        <span>›</span><span id="co-step-payment" style="opacity:0.45;">Payment</span>
+      </div>
+      <a href="#" data-page="shop" style="font-size:13px;font-weight:600;color:#2D6A4F;">← Continue shopping</a>
+    </div>
+
+    <div style="max-width:1100px;margin:0 auto;padding:40px 24px;display:grid;grid-template-columns:1fr 400px;gap:48px;" class="checkout-grid">
+
+      <!-- LEFT: Steps -->
+      <div>
+
+        <!-- STEP 0: Cart review -->
+        <div id="co-step-0" class="co-step">
+          <h2 style="font-size:26px;font-weight:900;margin-bottom:24px;">Your cart</h2>
+          <div id="cart-items-list" style="display:flex;flex-direction:column;gap:16px;margin-bottom:32px;"></div>
+          <div id="cart-empty" style="display:none;text-align:center;padding:60px 24px;background:#fff;border-radius:20px;">
+            <div style="font-size:48px;margin-bottom:16px;">🛒</div>
+            <h3 style="font-size:20px;font-weight:800;margin-bottom:8px;">Your cart is empty</h3>
+            <p style="color:#6B6B6B;margin-bottom:24px;">Add some mushroom magic first.</p>
+            <a href="#" data-page="shop" class="btn btn-purple">Shop now →</a>
+          </div>
+          <div id="cart-actions" style="display:flex;justify-content:flex-end;">
+            <button class="btn btn-purple" onclick="goStep(1)" style="font-size:16px;padding:16px 36px;">Continue to contact →</button>
+          </div>
+        </div>
+
+        <!-- STEP 1: Contact -->
+        <div id="co-step-1" class="co-step" style="display:none;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
+            <button onclick="goStep(0)" style="background:none;border:none;cursor:pointer;font-size:13px;color:#2D6A4F;font-weight:600;font-family:inherit;">← Back</button>
+            <h2 style="font-size:26px;font-weight:900;">Contact information</h2>
+          </div>
+          <div style="background:#fff;border-radius:20px;padding:32px;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+              <div class="form-group" style="margin:0;"><label>First name *</label><input type="text" id="co-fname" placeholder="Jamie" required /></div>
+              <div class="form-group" style="margin:0;"><label>Last name *</label><input type="text" id="co-lname" placeholder="Smith" required /></div>
+            </div>
+            <div class="form-group"><label>Email address *</label><input type="email" id="co-email" placeholder="jamie@email.com" required /></div>
+            <div class="form-group"><label>Phone number</label><input type="tel" id="co-phone" placeholder="+1 (555) 000-0000" /></div>
+            <div style="margin-top:8px;">
+              <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;">
+                <input type="checkbox" id="co-newsletter" checked style="width:16px;height:16px;accent-color:#2D6A4F;" />
+                <span style="color:#6B6B6B;">Email me with news and offers from Happie Fungi Fusion</span>
+              </label>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:flex-end;margin-top:24px;">
+            <button class="btn btn-purple" onclick="validateContact()" style="font-size:16px;padding:16px 36px;">Continue to shipping →</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: Shipping -->
+        <div id="co-step-2" class="co-step" style="display:none;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
+            <button onclick="goStep(1)" style="background:none;border:none;cursor:pointer;font-size:13px;color:#2D6A4F;font-weight:600;font-family:inherit;">← Back</button>
+            <h2 style="font-size:26px;font-weight:900;">Shipping address</h2>
+          </div>
+          <div style="background:#fff;border-radius:20px;padding:32px;box-shadow:0 2px 12px rgba(0,0,0,0.05);margin-bottom:24px;">
+            <div class="form-group"><label>Address *</label><input type="text" id="co-address" placeholder="123 Main Street" required /></div>
+            <div class="form-group"><label>Apartment, suite, etc. (optional)</label><input type="text" id="co-apt" placeholder="Apt 4B" /></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+              <div class="form-group" style="margin:0;"><label>City *</label><input type="text" id="co-city" placeholder="New York" required /></div>
+              <div class="form-group" style="margin:0;"><label>ZIP code *</label><input type="text" id="co-zip" placeholder="10001" required /></div>
+            </div>
+            <div class="form-group" style="margin-top:16px;"><label>State *</label>
+              <select id="co-state">
+                <option value="">Select state</option>
+                <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
+                <option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option>
+                <option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+                <option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option>
+                <option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option>
+                <option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+                <option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option>
+                <option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option>
+                <option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+                <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option>
+                <option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option>
+                <option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option>
+                <option>Wisconsin</option><option>Wyoming</option>
+              </select>
+            </div>
+          </div>
+          <h3 style="font-size:18px;font-weight:800;margin-bottom:16px;">Shipping method</h3>
+          <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px;">
+            <label id="ship-standard" style="display:flex;align-items:center;justify-content:space-between;background:#fff;border:2px solid #2D6A4F;border-radius:16px;padding:18px 20px;cursor:pointer;">
+              <div style="display:flex;align-items:center;gap:14px;">
+                <input type="radio" name="shipping" value="standard" checked style="accent-color:#2D6A4F;width:18px;height:18px;" />
+                <div><div style="font-weight:700;font-size:15px;">Standard Shipping</div><div style="font-size:13px;color:#6B6B6B;">3–7 business days</div></div>
+              </div>
+              <span id="ship-std-price" style="font-weight:800;font-size:16px;color:#2D6A4F;">FREE</span>
+            </label>
+            <label style="display:flex;align-items:center;justify-content:space-between;background:#fff;border:2px solid rgba(0,0,0,0.1);border-radius:16px;padding:18px 20px;cursor:pointer;">
+              <div style="display:flex;align-items:center;gap:14px;">
+                <input type="radio" name="shipping" value="expedited" style="accent-color:#2D6A4F;width:18px;height:18px;" />
+                <div><div style="font-weight:700;font-size:15px;">Expedited Shipping</div><div style="font-size:13px;color:#6B6B6B;">2–3 business days</div></div>
+              </div>
+              <span style="font-weight:800;font-size:16px;">$12.99</span>
+            </label>
+          </div>
+          <div style="display:flex;justify-content:flex-end;">
+            <button class="btn btn-purple" onclick="validateShipping()" style="font-size:16px;padding:16px 36px;">Continue to payment →</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: Payment -->
+        <div id="co-step-3" class="co-step" style="display:none;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
+            <button onclick="goStep(2)" style="background:none;border:none;cursor:pointer;font-size:13px;color:#2D6A4F;font-weight:600;font-family:inherit;">← Back</button>
+            <h2 style="font-size:26px;font-weight:900;">Payment</h2>
+          </div>
+          <!-- Shipping summary -->
+          <div style="background:#f0faf3;border:1px solid #d8f3dc;border-radius:16px;padding:16px 20px;margin-bottom:24px;font-size:14px;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+              <span style="color:#6B6B6B;">Contact</span>
+              <span id="pay-email-display" style="font-weight:600;"></span>
+            </div>
+            <div style="display:flex;justify-content:space-between;">
+              <span style="color:#6B6B6B;">Ship to</span>
+              <span id="pay-address-display" style="font-weight:600;text-align:right;max-width:280px;"></span>
+            </div>
+          </div>
+          <div style="background:#fff;border-radius:20px;padding:32px;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+              <h3 style="font-size:17px;font-weight:800;">Card details</h3>
+              <div style="display:flex;gap:8px;align-items:center;">
+                <span style="background:#1a1f71;color:#fff;font-size:10px;font-weight:800;padding:4px 8px;border-radius:4px;">VISA</span>
+                <span style="background:#eb001b;color:#fff;font-size:10px;font-weight:800;padding:4px 8px;border-radius:4px;letter-spacing:-0.5px;">MC</span>
+                <span style="background:#2557D6;color:#fff;font-size:10px;font-weight:800;padding:4px 8px;border-radius:4px;">AMEX</span>
+              </div>
+            </div>
+            <div class="form-group"><label>Name on card *</label><input type="text" id="co-cardname" placeholder="Jamie Smith" required /></div>
+            <div class="form-group">
+              <label>Card number *</label>
+              <div style="position:relative;">
+                <input type="text" id="co-cardnum" placeholder="1234 5678 9012 3456" maxlength="19" style="padding-right:48px;" required />
+                <span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:20px;opacity:0.4;">💳</span>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+              <div class="form-group" style="margin:0;"><label>Expiry date *</label><input type="text" id="co-expiry" placeholder="MM / YY" maxlength="7" required /></div>
+              <div class="form-group" style="margin:0;"><label>Security code *</label><input type="text" id="co-cvv" placeholder="CVV" maxlength="4" required /></div>
+            </div>
+            <div style="margin-top:16px;display:flex;align-items:center;gap:8px;font-size:13px;color:#6B6B6B;">
+              <span>🔒</span> Your payment info is encrypted and secure. We never store card details.
+            </div>
+          </div>
+          <div style="display:flex;justify-content:flex-end;margin-top:24px;">
+            <button class="btn btn-purple" onclick="validatePayment()" id="pay-btn" style="font-size:16px;padding:16px 36px;min-width:200px;justify-content:center;">
+              Place order →
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 4: Confirmation -->
+        <div id="co-step-4" class="co-step" style="display:none;">
+          <div style="background:#fff;border-radius:24px;padding:56px 48px;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,0.07);">
+            <div style="width:72px;height:72px;background:#d8f3dc;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 24px;">✓</div>
+            <h2 style="font-size:32px;font-weight:900;margin-bottom:12px;">Order confirmed!</h2>
+            <p style="font-size:16px;color:#6B6B6B;margin-bottom:8px;">Thank you for your order. You'll receive a confirmation email shortly.</p>
+            <div id="confirm-order-num" style="display:inline-block;background:#f0faf3;border:1px solid #d8f3dc;border-radius:50px;padding:8px 20px;font-size:14px;font-weight:700;color:#2D6A4F;margin:16px 0 32px;"></div>
+            <div id="confirm-summary" style="background:#f5f0e8;border-radius:16px;padding:24px;text-align:left;margin-bottom:32px;font-size:14px;"></div>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+              <a href="#" data-page="shop" class="btn btn-purple">Shop more →</a>
+              <a href="#" data-page="home" class="btn btn-outline">Back to home</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Order summary -->
+      <div id="co-order-summary">
+        <div style="background:#fff;border-radius:20px;padding:28px;box-shadow:0 2px 12px rgba(0,0,0,0.06);position:sticky;top:90px;">
+          <h3 style="font-size:17px;font-weight:800;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(0,0,0,0.07);">Order summary</h3>
+          <div id="summary-items" style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px;"></div>
+          <div style="border-top:1px solid rgba(0,0,0,0.07);padding-top:16px;display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;justify-content:space-between;font-size:14px;color:#6B6B6B;">
+              <span>Subtotal</span><span id="summary-subtotal" style="font-weight:600;color:#111;">$0.00</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:14px;color:#6B6B6B;">
+              <span>Shipping</span><span id="summary-shipping" style="font-weight:600;color:#2D6A4F;">FREE</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:14px;color:#6B6B6B;">
+              <span>Tax (8%)</span><span id="summary-tax" style="font-weight:600;color:#111;">$0.00</span>
+            </div>
+          </div>
+          <div style="border-top:2px solid rgba(0,0,0,0.08);margin-top:14px;padding-top:16px;display:flex;justify-content:space-between;font-size:20px;font-weight:900;">
+            <span>Total</span><span id="summary-total" style="color:#2D6A4F;">$0.00</span>
+          </div>
+          <!-- Promo code -->
+          <div style="margin-top:20px;">
+            <div style="display:flex;gap:8px;">
+              <input type="text" id="promo-input" placeholder="Promo code" style="flex:1;padding:10px 14px;border:2px solid rgba(0,0,0,0.1);border-radius:10px;font-size:14px;font-family:inherit;outline:none;" />
+              <button onclick="applyPromo()" style="background:#2D6A4F;color:#fff;border:none;border-radius:10px;padding:10px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;">Apply</button>
+            </div>
+            <div id="promo-msg" style="font-size:12px;margin-top:6px;display:none;"></div>
+          </div>
+          <div style="margin-top:20px;background:#f0faf3;border-radius:12px;padding:14px 16px;font-size:13px;color:#2D6A4F;font-weight:600;display:flex;align-items:center;gap:8px;">
+            <span>🚚</span> Free shipping on orders over $60!
+          </div>
+          <div style="margin-top:10px;background:#f5f0e8;border-radius:12px;padding:12px 16px;font-size:12px;color:#6B6B6B;display:flex;align-items:center;gap:8px;">
+            <span>🔒</span> Secure checkout · SSL encrypted
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- /page-checkout -->
+
+<!-- ============================================================
      FOOTER (shared across all pages)
      ============================================================ -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="brand-name"><img src="images/Happie Logo (6).png" alt="Happie Fungi Fusion" style="height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.9;" /></div>
+      <div class="brand-name"><img src="images/Happie%20Logo%20(6).png" alt="Happie Fungi Fusion" style="height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.9;" /></div>
       <p>Functional mushroom drinks for the part of your day that's not happy hour. 2,000mg of Lion's Mane, Cordyceps, and Reishi per can. No alcohol, no THC, no jitters.</p>
       <div class="footer-social">
         <a href="https://instagram.com/happiefusion" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">📷</a>
